@@ -1,0 +1,22 @@
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20/10/2014, 15:59:44
+    Author     : Victor
+*/
+@media screen and (orientation: portrait) {
+    /*Modo retrato = vertical */
+    .horizontal{display: none;}
+    .vertical{display:block;}
+}
+
+@media screen and (orientation: landscape) {
+    /*Modo retrato =  vertical*/
+    .horizontal{display: block;}
+    .vertical{display:none;}
+}
