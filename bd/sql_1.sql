@@ -154,17 +154,3 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
--- -----------------------------------------------------
--- Data for table `sitap`.`tbl_usuario`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `sitap`;
-INSERT INTO `sitap`.`tbl_usuario` (`idusuario`, `nome`, `senha`, `email`, `foto`, `sexo`, `cidade`, `estado`, `endereco`, `cep`) VALUES (2, 'Gilverton Gerverson', '1234', 'Gilverton@gil.com', 'http://lorempixel.com/output/nightlife-q-c-333-333-3.jpg', 'Masculino', 'Brunopolis', 'Bunbameuboi', 'Bomximbomximbombombom', '882909382');
-INSERT INTO `sitap`.`tbl_usuario` (`idusuario`, `nome`, `senha`, `email`, `foto`, `sexo`, `cidade`, `estado`, `endereco`, `cep`) VALUES (0, 'Anonimo', NULL, 'anonimo@anonimo.com', 'http://lorempixel.com/output/nightlife-q-c-333-333-3.jpg', 'Masculino', 'anonimo', 'anonimo', 'anonimo', 'anonimo');
-INSERT INTO `sitap`.`tbl_usuario` (`idusuario`, `nome`, `senha`, `email`, `foto`, `sexo`, `cidade`, `estado`, `endereco`, `cep`) VALUES (3, 'Cacilda', '4321', 'cacilda@cacilda.com', 'http://lorempixel.com/output/nightlife-q-c-333-333-3.jpg', 'Feminino', 'Calcinopolis', NULL, NULL, NULL);
-INSERT INTO `sitap`.`tbl_usuario` (`idusuario`, `nome`, `senha`, `email`, `foto`, `sexo`, `cidade`, `estado`, `endereco`, `cep`) VALUES (1, 'Admin', '1234', 'admin@admin.com', 'http://lorempixel.com/output/nightlife-q-c-333-333-3.jpg', 'Masculino', 'Brusque', 'Brusque', 'Brusque', '889282899');
-INSERT INTO `sitap`.`tbl_usuario` (`idusuario`, `nome`, `senha`, `email`, `foto`, `sexo`, `cidade`, `estado`, `endereco`, `cep`) VALUES (NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL);
-
-COMMIT;
-
