@@ -18,11 +18,13 @@
         <input type="text" name="corpo" value="<?php echo $dados_artigo[0]->corpo; ?>"/>
         <div class="error"><?php echo form_error('corpo'); ?></div>
      
-       
-       
+        
 
-        <input type="submit" name="atualizar" value="Atualizar" />
-
+        <input type="submit" name="atualizar" onclick="pegaHora()"  value="Atualizar" />
+        <script>
+            function pegaHora(){
+        <input type="text" hidden name="data" value="<?php date_default_timezone_set('America/Sao_Paulo');  $date = date('Y/m/d H:i:s'); echo $date; ?>"/>}
+        </script>
         <?php echo form_close(); ?>
     </body>
 </html>

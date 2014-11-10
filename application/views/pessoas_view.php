@@ -3,7 +3,7 @@
     <head>
         <title><?php echo $titulo; ?></title>
         <meta charset="UTF-8" />
-        <link type="text/css" rel="stylesheet" href="<?php echo base_url();?>assets/css/estilo.css"/>
+        <link type="text/css" rel="stylesheet" href="http://127.0.0.1/sitApTecVesp2014/assets/css/estilo.css"/>
     </head>
     <body>
         

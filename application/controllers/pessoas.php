@@ -12,10 +12,14 @@ class Pessoas extends CI_Controller {
     }
 
     function index() {
-        $data['titulo'] = "CRUD com CodeIgniter | Cadastro de Pessoas";
+//        $data['titulo'] = "CRUD com CodeIgniter | Cadastro de Pessoas";
         $this->load->helper('form');
         $data['pessoas'] = $this->pessoas_model->listar();
-        $this->load->view('pessoas_view.php', $data);
+//        $this->load->view('pessoas_view.php', $data);
+
+        $this->load->view('home_sidebar');
+        $this->load->view('home_content_usuario', $data);
+        $this->load->view('home_header');
     }
 
     function inserir() {
@@ -74,7 +78,11 @@ class Pessoas extends CI_Controller {
         $data['dados_pessoa'] = $this->pessoas_model->editar($id);
 
         /* Carrega a página de edição com os dados da pessoa */
-        $this->load->view('pessoas_edit', $data);
+        
+         $this->load->view('home_sidebar');
+        $this->load->view('home_content_usuario_edit', $data);
+        $this->load->view('home_header');
+        
     }
 
     function atualizar() {
@@ -107,35 +115,35 @@ class Pessoas extends CI_Controller {
                 'label' => 'Foto',
                 'rules' => 'trim|required|max_length[100]'
             ),
-             array(
+            array(
                 'field' => 'sexo',
                 'label' => 'Sexo',
                 'rules' => ''
             ),
-             array(
+            array(
                 'field' => 'cidade',
                 'label' => 'Cidade',
                 'rules' => ''
             ),
-             array(
+            array(
                 'field' => 'estado',
                 'label' => 'Estado',
                 'rules' => ''
             ),
-             array(
+            array(
                 'field' => 'endereco',
                 'label' => 'Endereço',
                 'rules' => ''
             ),
-             array(
+            array(
                 'field' => 'cep',
                 'label' => 'CEP',
                 'rules' => ''
             )
         );
         $this->form_validation->set_rules($validations);
-        
-        
+
+
 
 
         /* Executa a validação... */
@@ -154,17 +162,17 @@ class Pessoas extends CI_Controller {
             $data['estado'] = strtolower($this->input->post('estado'));
             $data['endereco'] = ucwords($this->input->post('endereco'));
             $data['cep'] = strtolower($this->input->post('cep'));
-            
-            
+
+
             /* Carrega o modelo */
             $this->load->model('pessoas_model');
 
             /* Executa a função atualizar do modelo passando como parâmetro os dados obtidos do formulário */
             if ($this->pessoas_model->atualizar($data)) {
                 /* Caso sucesso ao atualizar, recarrega a página principal */
-               
-                
-               
+
+
+
                 redirect('pessoas');
             } else {
                 /* Senão exibe a mensagem de erro */
