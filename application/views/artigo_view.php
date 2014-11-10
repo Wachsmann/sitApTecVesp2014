@@ -17,11 +17,11 @@
         <input type="text"  name="corpo" value="<?php echo set_value('corpo'); ?>"/>
         <div class="error"><?php echo form_error('corpo'); ?></div>
         
-         <input type="text" hidden name="data" value="NOW()"/>
+         <input type="text" hidden name="data" value="<?php date_default_timezone_set('America/Sao_Paulo');  $date = date('Y/m/d H:i:s'); echo $date; ?>"/>
         
         <input type="submit" name="cadastrar" value="Cadastrar" />
 
-
+       
 
         <!-- Lista as Pessoas Cadastradas -->
         <div id="grid-artigo">
@@ -38,5 +38,7 @@
             </ul>
         </div>
         <!-- Fim Lista -->
+    
+        <?php?>
     </body>
 </html>
