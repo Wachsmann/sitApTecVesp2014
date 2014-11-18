@@ -32,7 +32,8 @@
                                 <li><a href="#" class="icon fa-facebook">128</a></li>
                             </ul>
                         </div>
-                         <?php echo form_open('pessoas/atualizar', 'id="form-pessoas"'); ?>
+                      
+                         <?php echo form_open_multipart('pessoas/atualizar', 'id="form-pessoas"'); ?>
 
         <input type="hidden" name="idusuario" value="<?php echo $dados_pessoa[0]->idusuario; ?>"/>
 
@@ -49,7 +50,7 @@
         <div class="error"><?php echo form_error('nome'); ?></div>
 
         <label for="Foto">Foto:</label><br/>
-        <input type="text" name="foto" value="<?php echo $dados_pessoa[0]->foto; ?>"/>
+        <input type="file" name="foto" />   
         <div class="error"><?php echo form_error('foto'); ?></div>
         
         <label for="sexo">Sexo:</label><br/>

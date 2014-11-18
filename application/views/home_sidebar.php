@@ -46,8 +46,14 @@
                 <!-- Nav -->
                 <nav id="nav">
                     <ul>
+                        
+                         
                         <li class="current"><a href="#">Latest Post</a></li>
+                         <li><a href="<?php echo base_url();?>login">Login</a></li>
                         <li><a href="<?php echo base_url();?>pessoas">Cadastro de Usuário</a></li>
+                       
+                        <li><a href="<?php echo base_url();?>artigo">Criar Notícias</a></li>
+                        <li><a href="home/logout">Logout</a></li>
                         <li><a href="#">About Me</a></li>
                         <li><a href="#">Contact Me</a></li>
                     </ul>

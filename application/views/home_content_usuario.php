@@ -33,15 +33,14 @@
                             </ul>
                         </div>
                       
-        
-        <?php echo form_open('pessoas/inserir', 'id="form-pessoas"'); ?>
+        <?php echo form_open_multipart('pessoas/inserir', 'id="form-pessoas"'); ?>
 
         <label for="nome">Nome:</label><br/>
         <input type="text" name="nome" value="<?php echo set_value('nome'); ?>"/>
         <div class="error"><?php echo form_error('nome'); ?></div>
 
         <label for="senha">Senha</label><br/>
-        <input type="password" name="senha" value="<?php echo set_value('senha'); ?>"/>
+        <input type="password" name="senha" value="<?php echo set_value(md5('senha')); ?>"/>
         <div class="error"><?php echo form_error('senha'); ?></div>
 
         <label for="email">Email:</label><br/>
@@ -50,7 +49,7 @@
 
 
         <label for="foto">Foto:</label><br/>
-        <input type="text" name="foto" value="<?php echo set_value('foto'); ?>"/>
+        <input type="file" name="userfile" />
         <div class="error"><?php echo form_error('foto'); ?></div>
 
 
@@ -92,7 +91,26 @@
                         <span> - </span>
                         <a title="Editar" href="<?php echo base_url() . 'pessoas/editar/' . $pessoa->idusuario; ?>"><?php echo $pessoa->nome; ?></a>
                      
-                        
+                        <span> - </span>
+                            <a title="Editar" href="<?php echo base_url() . 'pessoas/editar/' . $pessoa->idusuario; ?>">
+                                <?php echo $pessoa->nome; ?></a>
+                            <span> - </span>
+                            <span><?php echo $pessoa->email; ?></span>
+                            <span> - </span>
+                            <span><?php echo $pessoa->senha; ?></span>
+                            <span> - </span>
+                            <span><?php echo $pessoa->sexo; ?></span>
+                            <span> - </span>
+                            <span><?php echo $pessoa->cidade; ?></span>
+                            <span> - </span>
+                            <span><?php echo $pessoa->estado; ?></span>
+                            <span> - </span>
+                            <span><?php echo $pessoa->endereco; ?></span>
+                            <span> - </span>
+                            <span><?php echo $pessoa->cep; ?></span>
+                            <span> - </span>
+                            <span> <img src="<?php echo base_url(); ?>assets/images/<?php echo $pessoa->foto; ?>" />
+                            </span>                        
                     </li>
                 <?php endforeach ?>
             </ul>

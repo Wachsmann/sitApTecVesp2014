@@ -9,11 +9,12 @@ class Pessoas extends CI_Controller {
         parent::__construct();
         /* Carrega o modelo */
         $this->load->model('pessoas_model');
+        $this->load->helper(array('form', 'url'));
     }
 
     function index() {
 //        $data['titulo'] = "CRUD com CodeIgniter | Cadastro de Pessoas";
-        $this->load->helper('form');
+      
         $data['pessoas'] = $this->pessoas_model->listar();
 //        $this->load->view('pessoas_view.php', $data);
 
@@ -23,10 +24,16 @@ class Pessoas extends CI_Controller {
     }
 
     function inserir() {
+ $config['upload_path'] = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']	= '1000000000';
+		$config['max_width']  = '10240';
+		$config['max_height']  = '7680';
 
+		$this->load->library('upload', $config);
+                
         /* Carrega a biblioteca do CodeIgniter responsável pela validação dos formulários */
         $this->load->library('form_validation');
-
         /* Define as tags onde a mensagem de erro será exibida na página */
         $this->form_validation->set_error_delimiters('<span>', '</span>');
 
@@ -34,7 +41,7 @@ class Pessoas extends CI_Controller {
         $this->form_validation->set_rules('nome', 'Nome', 'required|max_length[40]');
         $this->form_validation->set_rules('senha', 'Senha', '');
         $this->form_validation->set_rules('email', 'E-mail', 'trim|required|valid_email|max_length[100]');
-        $this->form_validation->set_rules('foto', 'Foto', 'required|max_length[100]');
+        $this->form_validation->set_rules('foto', 'Foto', '');
         $this->form_validation->set_rules('sexo', 'Sexo', '');
         $this->form_validation->set_rules('cidade', 'Cidade', '');
         $this->form_validation->set_rules('estado', 'Estado', '');
@@ -47,16 +54,24 @@ class Pessoas extends CI_Controller {
             /* Senão, caso sucesso na validação... */
         } else {
             /* Recebe os dados do formulário (visão) */
+            $this->upload->do_upload();
+            
             $data['nome'] = $this->input->post('nome');
             $data['senha'] = $this->input->post('senha');
             $data['email'] = $this->input->post('email');
-            $data['foto'] = $this->input->post('foto');
+            print_r ($data_upload(['file_name']));
+            die();
             $data['sexo'] = $this->input->post('sexo');
             $data['cidade'] = $this->input->post('cidade');
             $data['estado'] = $this->input->post('estado');
             $data['endereco'] = $this->input->post('endereco');
             $data['cep'] = $this->input->post('cep');
-
+            
+          
+            die();
+           
+		
+            
             /* Chama a função inserir do modelo */
             if ($this->pessoas_model->inserir($data)) {
                 header('location: pessoas');
@@ -72,17 +87,17 @@ class Pessoas extends CI_Controller {
         $data['titulo'] = "CRUD com CodeIgniter | Editar Pessoa";
 
         /* Carrega o modelo */
+       
         $this->load->model('pessoas_model');
 
         /* Busca os dados da pessoa que será editada (id) */
         $data['dados_pessoa'] = $this->pessoas_model->editar($id);
 
         /* Carrega a página de edição com os dados da pessoa */
-        
-         $this->load->view('home_sidebar');
+$this->load->helper('form');
+        $this->load->view('home_sidebar');
         $this->load->view('home_content_usuario_edit', $data);
         $this->load->view('home_header');
-        
     }
 
     function atualizar() {
@@ -113,7 +128,7 @@ class Pessoas extends CI_Controller {
             array(
                 'field' => 'foto',
                 'label' => 'Foto',
-                'rules' => 'trim|required|max_length[100]'
+                'rules' => ''
             ),
             array(
                 'field' => 'sexo',
@@ -195,5 +210,6 @@ class Pessoas extends CI_Controller {
             log_message('error', 'Erro ao deletar a pessoa.');
         }
     }
+    
 
 }

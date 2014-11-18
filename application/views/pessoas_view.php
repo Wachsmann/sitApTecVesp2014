@@ -23,7 +23,7 @@
 
 
         <label for="foto">Foto:</label><br/>
-        <input type="text" name="foto" value="<?php echo set_value('foto'); ?>"/>
+        <input type="file" name="foto"/>
         <div class="error"><?php echo form_error('foto'); ?></div>
 
 

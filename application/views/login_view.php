@@ -9,7 +9,7 @@
                                     if they get too long. You can also remove the <p> entirely if you don't
                                     need a subtitle.
                             -->
-                            <h2><a href="#">Editar Artigo</a></h2>
+                            <h2><a href="#">Login</a></h2>
                            <!--<p>A free, fully responsive HTML5 site template by HTML5 UP</p>-->
                         </header>
                         <div class="info">
@@ -32,20 +32,19 @@
                                 <li><a href="#" class="icon fa-facebook">128</a></li>
                             </ul>
                         </div> 
-         <?php echo form_open('artigo/atualizar', 'id="form-artigo"'); ?>
-
-        <input type="hidden" name="idartigo" value="<?php echo $dados_artigo[0]->idartigo; ?>"/>
-
-        <label for="titulo">Título:</label><br/>
-        <input type="text" name="titulo" value="<?php echo $dados_artigo[0]->titulo;?>"/>
-        <div class="error"><?php echo form_error('titulo'); ?></div>
-
-        <label for="corpo">Corpo:</label><br/>
-        <input type="text" name="corpo" value="<?php echo $dados_artigo[0]->corpo; ?>"/>
-        <div class="error"><?php echo form_error('corpo'); ?></div>
-        <input type="text" hidden name="data"  value="<?php date_default_timezone_set('America/Sao_Paulo');  $date = date('Y/m/d H:i:s'); echo $date; ?>"/>
-        
-        <input type="submit" name="atualizar"  value="Atualizar" />
+                        
        
-        <?php echo form_close(); ?>
-    
+       
+        <?php echo form_open('verifylogin'); ?>
+
+        <label for="nome">Nome:</label><br/>
+        <input type="text" name="nome" value="<?php echo set_value('nome'); ?>"/>
+        <div class="error"><?php echo form_error('nome'); ?></div>
+        
+        <label for="senha">Senha</label><br/>
+        <input type="password" name="senha" value="<?php echo set_value('senha'); ?>"/>
+        <div class="error"><?php echo form_error('senha'); ?></div>
+        
+        <input type="submit" value="Login"/>
+
+

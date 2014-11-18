@@ -8,14 +8,30 @@ class Artigo extends CI_Controller {
     function __construct() {
         parent::__construct();
         /* Carrega o modelo */
+        $this->load->helper('form');
         $this->load->model('artigo_model');
     }
 
     function index() {
-        $data['titulo'] = "CRUD com CodeIgniter | Cadastro de Pessoas";
+        
+         if($this->session->userdata('logged_in'))
+   {
+     $session_data = $this->session->userdata('logged_in');
+     $data['nome'] = $session_data['nome'];
+     $data['titulo'] = "";
         $this->load->helper('form');
         $data['artigo'] = $this->artigo_model->listar();
+        $this->load->view('home_header');
+        $this->load->view('home_sidebar',$data);
         $this->load->view('artigo_view.php', $data);
+   }
+   else
+   {
+     //If no session, redirect to login page
+     redirect('login', 'refresh');
+   }
+        
+        
     }
 
     function inserir() {
@@ -53,18 +69,29 @@ class Artigo extends CI_Controller {
     }
 
     function editar($id) {
-
-        /* Aqui vamos definir o título da página de edição */
-        $data['titulo'] = "CRUD com CodeIgniter | Editar Pessoa";
+if($this->session->userdata('logged_in'))
+   {
+     $session_data = $this->session->userdata('logged_in');
+     $data['nome'] = $session_data['nome'];
+      $data['titulo'] = "CRUD com CodeIgniter | Editar Pessoa";
 
         /* Carrega o modelo */
         $this->load->model('artigo_model');
 
         /* Busca os dados da pessoa que será editada (id) */
         $data['dados_artigo'] = $this->artigo_model->editar($id);
-
+        $this->load->view('home_header');
+        $this->load->view('home_sidebar');
         /* Carrega a página de edição com os dados da pessoa */
         $this->load->view('artigo_edit', $data);
+   }
+   else
+   {
+     //If no session, redirect to login page
+     redirect('login', 'refresh');
+   }
+        /* Aqui vamos definir o título da página de edição */
+       
     }
 
     function atualizar() {
@@ -100,10 +127,10 @@ class Artigo extends CI_Controller {
         /* Executa a validação... */
         if ($this->form_validation->run() === FALSE) {
             /* Caso houver erro chama função editar do controlador novamente */
-            $this->editar($this->input->post('id'));
+            $this->editar($this->input->post('idartigo'));
         } else {
             /* Senão obtém os dados do formulário */
-            $data['id'] = $this->input->post('id');
+            $data['idartigo'] = $this->input->post('idartigo');
             $data['titulo'] = ucwords($this->input->post('titulo'));
             $data['corpo'] = ucwords($this->input->post('corpo'));
              $data['data'] = ucwords($this->input->post('data'));

@@ -19,20 +19,22 @@ class Artigo_model extends CI_Model {
     }
 
     function editar($id) {
-        $this->db->where('id', $id);
+        $this->db->where('idartigo', $id);
         $query = $this->db->get('tbl_artigo');
+        
         return $query->result();
     }
 
     function atualizar($data) {
-        $this->db->where('id', $data['id']);
+        $this->db->where('idartigo', $data['idartigo']);
         $this->db->set($data);
+       
         return $this->db->update('tbl_artigo');
-      
+       
     }
 
     function deletar($id) {
-        $this->db->where('id', $id);
+        $this->db->where('idartigo', $id);
         return $this->db->delete('tbl_artigo');
     }
 
