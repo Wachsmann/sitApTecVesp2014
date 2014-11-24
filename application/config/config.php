@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/sitApTecVesp2014';
+$config['base_url']	= 'http://127.0.0.1/sitApTecVesp2014/';
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = 'REALLY_LONG_NUMBER';
+$config['encryption_key'] = '';
 
 /*
 |--------------------------------------------------------------------------

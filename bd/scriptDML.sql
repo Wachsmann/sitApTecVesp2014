@@ -1,58 +1,63 @@
 -- -----------------------------------------------------
--- Data for table `sitap`.`tbl_usuario`
+-- Data for table `sitap`.`usuario`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sitap`;
-INSERT INTO `sitap`.`tbl_usuario` (`idusuario`, `nome`, `senha`, `email`, `foto`, `sexo`, `cidade`, `estado`, `endereco`, `cep`) VALUES (2, 'Gilverton Gerverson', '1234', 'Gilverton@gil.com', 'http://lorempixel.com/output/nightlife-q-c-333-333-3.jpg', 'm', 'Brunopolis', 'Bunbameuboi', 'Bomximbomximbombombom', '882909382');
-INSERT INTO `sitap`.`tbl_usuario` (`idusuario`, `nome`, `senha`, `email`, `foto`, `sexo`, `cidade`, `estado`, `endereco`, `cep`) VALUES (0, 'Anonimo', NULL, 'anonimo@anonimo.com', 'http://lorempixel.com/output/nightlife-q-c-333-333-3.jpg', 'm', 'anonimo', 'anonimo', 'anonimo', 'anonimo');
-INSERT INTO `sitap`.`tbl_usuario` (`idusuario`, `nome`, `senha`, `email`, `foto`, `sexo`, `cidade`, `estado`, `endereco`, `cep`) VALUES (3, 'Cacilda', '4321', 'cacilda@cacilda.com', 'http://lorempixel.com/output/nightlife-q-c-333-333-3.jpg', 'f', 'Calcinopolis', NULL, NULL, NULL);
-INSERT INTO `sitap`.`tbl_usuario` (`idusuario`, `nome`, `senha`, `email`, `foto`, `sexo`, `cidade`, `estado`, `endereco`, `cep`) VALUES (1, 'Admin', '1234', 'admin@admin.com', 'http://lorempixel.com/output/nightlife-q-c-333-333-3.jpg', 'm', 'Brusque', 'Brusque', 'Brusque', '889282899');
-INSERT INTO `sitap`.`tbl_usuario` (`idusuario`, `nome`, `senha`, `email`, `foto`, `sexo`, `cidade`, `estado`, `endereco`, `cep`) VALUES (NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sitap`.`usuario` (`idusuario`, `nome`, `email`, `senha`, `sexo`, `cidade`, `estado`, `endereco`, `cep`, `foto`) VALUES (2, 'Gilberson Silva dos Santos', 'gilber@hotmail.com', '1234', 'M', 'Brusque', 'SC', 'Rua do Gilberson, 47', '88356-890', 'gilberson.png');
+INSERT INTO `sitap`.`usuario` (`idusuario`, `nome`, `email`, `senha`, `sexo`, `cidade`, `estado`, `endereco`, `cep`, `foto`) VALUES (0, 'Anônimo', 'anonimo@anonimo.com.br', NULL, NULL, NULL, NULL, NULL, NULL, 'ciclops.png');
+INSERT INTO `sitap`.`usuario` (`idusuario`, `nome`, `email`, `senha`, `sexo`, `cidade`, `estado`, `endereco`, `cep`, `foto`) VALUES (1, 'Admin', 'admin@admin.com.br', '1234', NULL, NULL, NULL, NULL, NULL, 'ciclops.png');
+INSERT INTO `sitap`.`usuario` (`idusuario`, `nome`, `email`, `senha`, `sexo`, `cidade`, `estado`, `endereco`, `cep`, `foto`) VALUES (3, 'Cacilda Paris Hilton', 'cacilda@gmail.com', '1234', 'F', 'Guabiruba', 'SC', 'Rua na Guabiruba, 74', '88301-805', 'cacilda.png');
 
 COMMIT;
 
-
 -- -----------------------------------------------------
--- Data for table `sitap`.`tbl_artigo`
+-- Data for table `sitap`.`artigo`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sitap`;
-INSERT INTO `sitap`.`tbl_artigo` (`id`, `titulo`, `corpo`, `data`, `idusuario`, `like`) VALUES (1, 'Pizza', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies dignissim nunc nec pretium. Integer tincidunt eros vitae metus vehicula mattis. Mauris lacinia malesuada arcu, non tempus neque fringilla elementum. Fusce dapibus sapien eget magna hendrerit tempor. Ut id orci id nunc ultrices pellentesque. Aliquam dolor purus, tincidunt vel facilisis ut, placerat id mauris. Pellentesque ut dui et diam dignissim malesuada. Phasellus a mauris at tortor maximus pharetra sit amet ac nisl. Donec lobortis ultricies dolor, id pellentesque sem placerat sed. In gravida ante id euismod sodales. Donec nec ornare orci. Proin eget scelerisque justo. Nam efficitur elit vitae ex placerat ullamcorper. Integer dignissim tincidunt dictum. Etiam lacus augue, sodales in rutrum sed, semper ut nunc.</p> ', '2014-10-27 16:48', NULL, NULL);
-INSERT INTO `sitap`.`tbl_artigo` (`id`, `titulo`, `corpo`, `data`, `idusuario`, `like`) VALUES (2, 'Bacon', '<p>Bacon ipsum dolor amet pig ball tip venison tail biltong landjaeger ham boudin tri-tip short loin. Chicken salami shankle rump drumstick, t-bone landjaeger kevin bacon andouille. Pork loin turducken tongue, short loin pastrami pancetta drumstick ball tip beef chicken beef ribs cow fatback. Chuck frankfurter tenderloin ribeye t-bone doner flank strip steak short ribs.</p>', '2014-10-27 16:48', NULL, NULL);
-INSERT INTO `sitap`.`tbl_artigo` (`id`, `titulo`, `corpo`, `data`, `idusuario`, `like`) VALUES (NULL, NULL, NULL, '2014-10-27 16:48', NULL, NULL);
+INSERT INTO `sitap`.`artigo` (`idartigo`, `titulo`, `corpo`, `data`, `idusuario`, `like`) VALUES (1, 'A Pizza nossa de cada dia no dai hoje', '<p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>', '2014-10-27 16:42:13', 2, 15);
+INSERT INTO `sitap`.`artigo` (`idartigo`, `titulo`, `corpo`, `data`, `idusuario`, `like`) VALUES (2, 'O bacon faz mal pro porco', '<p>Bacon ipsum dolor amet pork loin rump sausage kielbasa shank doner kevin spare ribs sirloin pork chop tenderloin corned beef ham hock tongue meatloaf. Corned beef cow brisket rump jerky t-bone. Ribeye brisket jowl, tri-tip frankfurter cow short ribs shank pork spare ribs venison flank ham salami. Boudin t-bone kielbasa flank strip steak.</p>', '2014-10-27 16:50:35', 3, 10);
 
 COMMIT;
 
-
 -- -----------------------------------------------------
--- Data for table `sitap`.`tbl_fotos`
+-- Data for table `sitap`.`comentario`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sitap`;
-INSERT INTO `sitap`.`tbl_fotos` (`id`, `fotos`, `idartigo`) VALUES (1, 'http://lorempizza.com/i/714/300', NULL);
-INSERT INTO `sitap`.`tbl_fotos` (`id`, `fotos`, `idartigo`) VALUES (NULL, 'http://baconmockup.com/300/200', NULL);
+INSERT INTO `sitap`.`comentario` (`idcomentario`, `idusuario`, `idartigo`, `corpo`, `data`) VALUES (1, 0, 1, 'Alo ha isso é um comentário do anônimo', '2014-10-27 16:48:15');
+INSERT INTO `sitap`.`comentario` (`idcomentario`, `idusuario`, `idartigo`, `corpo`, `data`) VALUES (2, 3, 1, 'Alo ha Cacilda aqui', '2014-10-28 8:56:15');
 
 COMMIT;
 
-
 -- -----------------------------------------------------
--- Data for table `sitap`.`tbl_categoria`
+-- Data for table `sitap`.`foto`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sitap`;
-INSERT INTO `sitap`.`tbl_categoria` (`id`, `nome`, `descricao`) VALUES (1, 'Pizza', 'Categoria que fala sobre pizzas');
-INSERT INTO `sitap`.`tbl_categoria` (`id`, `nome`, `descricao`) VALUES (2, 'Video Game', 'Categoria que fala sobre refrigerantes');
+INSERT INTO `sitap`.`foto` (`idfoto`, `arquivo`, `idartigo`) VALUES (1, 'http://lorempizza.com/i/714/300', 1);
+INSERT INTO `sitap`.`foto` (`idfoto`, `arquivo`, `idartigo`) VALUES (2, 'http://lorempizza.com/i/514/300', 1);
+INSERT INTO `sitap`.`foto` (`idfoto`, `arquivo`, `idartigo`) VALUES (3, 'http://baconmockup.com/300/200', 2);
+INSERT INTO `sitap`.`foto` (`idfoto`, `arquivo`, `idartigo`) VALUES (4, 'http://baconmockup.com/714/300', 2);
 
 COMMIT;
 
-
 -- -----------------------------------------------------
--- Data for table `sitap`.`tbl_comentario`
+-- Data for table `sitap`.`categoria`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sitap`;
-INSERT INTO `sitap`.`tbl_comentario` (`idcomentario`, `idusuario`, `idartigo`, `corpo`, `data`) VALUES (1, 0, 1, 'UULULULULULLULULULULU', '2014-10-27 16:48');
-INSERT INTO `sitap`.`tbl_comentario` (`idcomentario`, `idusuario`, `idartigo`, `corpo`, `data`) VALUES (2, 3, 1, 'very nice tichi', '2014-10-27 16:48');
+INSERT INTO `sitap`.`categoria` (`idcategoria`, `nome`, `descricao`) VALUES (1, 'Pizza', 'Categora que fala sobre pizzas');
+INSERT INTO `sitap`.`categoria` (`idcategoria`, `nome`, `descricao`) VALUES (2, 'Bacon', 'Categoria sobre bacon');
 
 COMMIT;
 
+-- -----------------------------------------------------
+-- Data for table `sitap`.`categoria_has_artigo`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `sitap`;
+INSERT INTO `sitap`.`categoria_has_artigo` (`idcategoria`, `idartigo`) VALUES (1, 1);
+INSERT INTO `sitap`.`categoria_has_artigo` (`idcategoria`, `idartigo`) VALUES (2, 2);
+
+COMMIT;
